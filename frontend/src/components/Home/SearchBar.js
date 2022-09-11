@@ -1,7 +1,7 @@
 import React from "react";
 
 const SearchBar = ({ title, setTitle }) => {
-    return (
+  return (
     <input
       id="search-box"
       placeholder="What is it that you truly desire?"
