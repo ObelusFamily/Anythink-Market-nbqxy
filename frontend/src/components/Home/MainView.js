@@ -72,11 +72,16 @@ const mapDispatchToProps = (dispatch) => ({
 const MainView = (props) => {
   if (props.itemsCount === 0 && props.title !== "") {
     return (
-      <div id="notfound">
-        <h3>
-          <span id="noitemtext">No items found for</span> "
-          <strong>{props.title}</strong>"
-        </h3>
+      <div
+        id="empty"
+        className="card rounded-0 text-white w-75 mx-auto py-4 mt-4"
+        style={{ background: "rgb(147,112,219,.4)" }}
+      >
+        <i className="bi bi-emoji-frown-fill text-center display-3"></i>
+        <h4 className="pt-2 m-0 text-center font-weight-light">
+          No items found for{" "}
+          <span className="font-weight-bold">"{props.title}"</span>
+        </h4>
       </div>
     );
   }
