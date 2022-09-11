@@ -16,9 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Banner = ({ items, initItems, buildItemsList, updateTitleSearchVal }) => {
-  const [kek, setKek] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   const startSearch = (input) => {
-    setKek(true);
     if (input.length >= 1) {
       const searchResult = items.filter(
         (item) => item.title.includes(input) && item
@@ -38,26 +38,34 @@ const Banner = ({ items, initItems, buildItemsList, updateTitleSearchVal }) => {
         <img src={logo} alt="banner" />
         <div className="container">
           <div class="row align-items-center">
-            <span className="col text-right" id="get-part">
-              A place to get
+            <span className="col text-right">
+              A place to{" "}
+              <span
+                id="get-part"
+                role="button"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+              >
+                get
+              </span>
             </span>
-            <div className="input-group col-6 p-0">
-              <input
-                id="search-box"
-                className="form-control my-0 py-1 border-0 shadow-none"
-                type="text"
-                placeholder="What is it that you truly desire?"
-                aria-label="Search"
-                onInput={(e) => startSearch(e.target.value)}
-              />
-              <div className="input-group-append">
-                <span className="input-group-text bg-white border-0">
-                  <i className="bi bi-search" aria-hidden="true"></i>
-                </span>
+            {isSearchOpen && (
+              <div className="input-group col-6 p-0">
+                <input
+                  id="search-box"
+                  className="form-control my-0 py-1 border-0 shadow-none"
+                  type="text"
+                  placeholder="What is it that you truly desire?"
+                  aria-label="Search"
+                  onInput={(e) => startSearch(e.target.value)}
+                />
+                <div className="input-group-append">
+                  <span className="input-group-text bg-white border-0">
+                    <i className="bi bi-search" aria-hidden="true"></i>
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
             <span className="col text-left"> the cool stuff.</span>
-            {kek && <div id="empty">kek</div>}
           </div>
         </div>
       </div>
