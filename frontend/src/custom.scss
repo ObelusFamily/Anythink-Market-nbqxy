@@ -59,3 +59,14 @@ body {
 .user-info {
   min-width: 800px;
 }
+
+input[type="search"] {
+  width: 320px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 40px;
+  background-color: white;
+  background-image: url("https://img.icons8.com/search/26");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
